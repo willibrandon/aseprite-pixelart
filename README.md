@@ -2,6 +2,8 @@
 
 Create, animate, and export pixel art using Aseprite through natural language and commands in Claude Code.
 
+*Powered by [aseprite-mcp](https://github.com/willibrandon/aseprite-mcp) - a Model Context Protocol server for Aseprite.*
+
 ## Features
 
 **Natural Language Pixel Art Creation**
@@ -25,6 +27,10 @@ Create, animate, and export pixel art using Aseprite through natural language an
 - JSON metadata for Unity, Godot, Phaser
 - Pixel-perfect scaling (2x, 4x, 8x)
 - Multiple spritesheet layouts
+
+## How It Works
+
+This plugin uses the [aseprite-mcp](https://github.com/willibrandon/aseprite-mcp) Model Context Protocol server to communicate with Aseprite. The MCP server provides 40+ tools for pixel art operations and is bundled with the plugin.
 
 ## Quick Start
 
@@ -257,6 +263,7 @@ See [Known Issues](docs/KNOWN_ISSUES.md) for additional troubleshooting informat
 
 - **Aseprite**: v1.3.0 or higher
 - **Claude Code**: v1.0.0 or higher
+- **aseprite-mcp**: MCP server (bundled) - [Source](https://github.com/willibrandon/aseprite-mcp)
 - **Disk Space**: ~50MB for plugin and binaries
 
 ## Contributing
