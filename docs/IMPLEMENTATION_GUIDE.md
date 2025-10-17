@@ -661,56 +661,42 @@ git log --oneline
 
 **Goal:** Build and integrate aseprite-mcp binaries with the plugin.
 
-### Chunk 2.1: Build aseprite-mcp Binaries
+### Chunk 2.1: Download aseprite-mcp v0.1.0 Release Binaries
 
-**Objective:** Build aseprite-mcp for all target platforms.
+**Objective:** Download aseprite-mcp v0.1.0 release binaries for all target platforms.
 
-**Context:** We need to compile the aseprite-mcp Go server from the adjacent repository and place binaries in our `bin/` directory.
+**Context:** We'll download the official v0.1.0 release binaries from GitHub instead of building from source. This ensures we're using a stable, tested version.
 
 **Commands to Run:**
 
 ```bash
-# Navigate to aseprite-mcp repository
-cd /Users/brandon/src/aseprite-mcp
+# Create a temporary directory for downloads
+mkdir -p /tmp/aseprite-mcp-download
+cd /tmp/aseprite-mcp-download
 
-# Verify we're in the right place
-pwd
-ls -la | grep Makefile
+# Download binaries from GitHub release v0.1.0
+# Note: Adjust URLs if the release asset names differ
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-darwin-amd64
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-darwin-arm64
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-linux-amd64
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-linux-arm64
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-windows-amd64.exe
 
-# Build for all platforms
-make clean
-make release
+# Verify downloads
+ls -lh
 
-# This should create binaries in bin/ directory
-# Check what was built
-ls -la bin/
-
-# Expected output should include:
-# aseprite-mcp-darwin-amd64
-# aseprite-mcp-darwin-arm64
-# aseprite-mcp-linux-amd64
-# aseprite-mcp-linux-arm64
-# aseprite-mcp-windows-amd64.exe
-```
-
-**Copy Binaries to Plugin:**
-
-```bash
-# Navigate back to plugin directory
-cd /Users/brandon/src/aseprite-pixelart-plugin
-
-# Copy binaries from aseprite-mcp to plugin bin/
-cp /Users/brandon/src/aseprite-mcp/bin/aseprite-mcp-darwin-amd64 bin/
-cp /Users/brandon/src/aseprite-mcp/bin/aseprite-mcp-darwin-arm64 bin/
-cp /Users/brandon/src/aseprite-mcp/bin/aseprite-mcp-linux-amd64 bin/
-cp /Users/brandon/src/aseprite-mcp/bin/aseprite-mcp-linux-arm64 bin/
-cp /Users/brandon/src/aseprite-mcp/bin/aseprite-mcp-windows-amd64.exe bin/
+# Copy binaries to plugin directory
+cd /Users/brandon/src/aseprite-pixelart
+cp /tmp/aseprite-mcp-download/* bin/
 
 # Make binaries executable
 chmod +x bin/aseprite-mcp-*
 
 # Remove .gitkeep since we now have files
 rm bin/.gitkeep
+
+# Clean up temporary directory
+rm -rf /tmp/aseprite-mcp-download
 ```
 
 **Verification Steps:**
@@ -742,12 +728,12 @@ bin/aseprite-mcp-darwin-arm64 --version || bin/aseprite-mcp-darwin-amd64 --versi
 
 ```bash
 git add bin/
-git commit -m "feat(mcp): add aseprite-mcp binaries for all platforms
+git commit -m "feat(mcp): add aseprite-mcp v0.1.0 binaries for all platforms
 
-- Built aseprite-mcp v1.0 from source
+- Downloaded aseprite-mcp v0.1.0 release binaries from GitHub
 - Added binaries for macOS (Intel & ARM), Linux, Windows
 - Made binaries executable
-- Binaries range from X-Y MB each
+- Using official release instead of building from source
 
 Chunk: 2.1"
 ```
