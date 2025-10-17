@@ -4,8 +4,11 @@
       "command": "${CLAUDE_PLUGIN_ROOT}/bin/aseprite-mcp",
       "args": [],
       "env": {
-        "CONFIG_PATH": "${CLAUDE_PLUGIN_ROOT}/config/aseprite-mcp-config.json"
-      }
+        "ASEPRITE_MCP_CONFIG": "${HOME}/.config/aseprite-mcp/config.json"
+      },
+      "disabled": false,
+      "alwaysAllow": [],
+      "description": "Aseprite MCP Server - Provides pixel art creation, animation, and export capabilities"
     }
   }
 }

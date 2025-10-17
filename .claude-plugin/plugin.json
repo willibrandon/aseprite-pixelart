@@ -1,22 +1,40 @@
 {
   "name": "aseprite-pixelart",
+  "displayName": "Aseprite Pixel Art",
   "version": "1.0.0",
-  "description": "Create and edit pixel art sprites using Aseprite through natural language. Provides Skills for autonomous assistance and commands for direct control.",
+  "description": "Create, animate, and export pixel art using Aseprite through natural language and commands. Supports retro palettes, animation, dithering, and game engine export.",
   "author": {
     "name": "Brandon Williams",
     "url": "https://github.com/willibrandon"
   },
-  "repository": "https://github.com/willibrandon/aseprite-pixelart",
-  "homepage": "https://github.com/willibrandon/aseprite-pixelart",
   "license": "MIT",
+  "homepage": "https://github.com/willibrandon/aseprite-pixelart",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willibrandon/aseprite-pixelart.git"
+  },
+  "bugs": {
+    "url": "https://github.com/willibrandon/aseprite-pixelart/issues"
+  },
   "keywords": [
-    "pixel-art",
+    "pixel art",
     "aseprite",
-    "graphics",
-    "sprites",
+    "sprite",
     "animation",
-    "game-dev",
-    "art",
-    "mcp"
-  ]
+    "game dev",
+    "retro",
+    "8-bit",
+    "16-bit",
+    "graphics",
+    "tileset"
+  ],
+  "engines": {
+    "claude-code": ">=1.0.0"
+  },
+  "categories": [
+    "Graphics",
+    "Game Development",
+    "Creative Tools"
+  ],
+  "icon": "icon.png"
 }

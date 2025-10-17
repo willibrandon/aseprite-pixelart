@@ -1,0 +1,29 @@
+Plugin Icon Requirements
+========================
+
+Specifications:
+- Dimensions: 256x256 pixels
+- Format: PNG with transparency
+- File: .claude-plugin/icon.png
+
+Design Guidelines:
+- Pixel art style (matching plugin theme)
+- Aseprite brand colors (optional, if permitted)
+- Recognizable at small sizes (64x64, 32x32)
+- Clear, simple design
+- High contrast for visibility
+
+Suggested Elements:
+- Paint brush or pencil
+- Color palette
+- Pixel grid
+- Sprite silhouette
+- Animation frames hint
+
+Creation Tools:
+- Aseprite (recommended, meta approach)
+- GIMP or Photoshop with pixel art brushes
+- Online pixel art tools (Piskel, Pixilart)
+- Commission from pixel artist
+
+Once created, replace this file with actual icon.png
