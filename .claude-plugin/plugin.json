@@ -1,6 +1,5 @@
 {
   "name": "aseprite-pixelart",
-  "displayName": "Aseprite Pixel Art",
   "version": "0.1.0",
   "description": "Create, animate, and export pixel art using Aseprite through natural language and commands. Supports retro palettes, animation, dithering, and game engine export.",
   "author": {
@@ -9,13 +8,7 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/willibrandon/aseprite-pixelart",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/willibrandon/aseprite-pixelart.git"
-  },
-  "bugs": {
-    "url": "https://github.com/willibrandon/aseprite-pixelart/issues"
-  },
+  "repository": "https://github.com/willibrandon/aseprite-pixelart.git",
   "keywords": [
     "pixel art",
     "aseprite",
@@ -27,14 +20,5 @@
     "16-bit",
     "graphics",
     "tileset"
-  ],
-  "engines": {
-    "claude-code": ">=1.0.0"
-  },
-  "categories": [
-    "Graphics",
-    "Game Development",
-    "Creative Tools"
-  ],
-  "icon": "icon.png"
+  ]
 }
