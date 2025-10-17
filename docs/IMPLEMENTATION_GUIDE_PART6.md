@@ -15,7 +15,7 @@ This document contains Phase 7 chunks (Documentation and Release).
 
 ## Phase 7: Documentation and Release
 
-### Chunk 7.1: Create comprehensive README.md
+### Chunk 7.1: Create README.md
 
 **Objective**: Write user-facing README with installation, quick start, features, and examples.
 
@@ -29,31 +29,27 @@ This document contains Phase 7 chunks (Documentation and Release).
 ```markdown
 # Aseprite Pixel Art Plugin for Claude Code
 
-Create, animate, and export professional pixel art using Aseprite through natural language and commands in Claude Code.
-
-![Plugin Version](https://img.shields.io/badge/version-1.0.0-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-![Claude Code](https://img.shields.io/badge/Claude%20Code-1.0%2B-purple)
+Create, animate, and export pixel art using Aseprite through natural language and commands in Claude Code.
 
 ## Features
 
-🎨 **Natural Language Pixel Art Creation**
+**Natural Language Pixel Art Creation**
 - "Create a 64x64 Game Boy style sprite"
 - "Draw a red circle with blue outline"
 - "Make a 16x16 tile"
 
-🎬 **Animation Made Easy**
+**Animation Support**
 - "Add a 4-frame walk cycle"
 - "Create an idle animation"
 - "Set frame timing to 100ms"
 
-🎭 **Advanced Techniques**
+**Advanced Techniques**
 - Apply dithering patterns
 - Optimize color palettes
 - Add shading and antialiasing
 - Use retro console palettes (NES, Game Boy, C64, PICO-8)
 
-📦 **Game-Ready Export**
+**Game-Ready Export**
 - PNG, GIF, spritesheet formats
 - JSON metadata for Unity, Godot, Phaser
 - Pixel-perfect scaling (2x, 4x, 8x)
@@ -73,7 +69,7 @@ Create, animate, and export professional pixel art using Aseprite through natura
 /install aseprite-pixelart
 
 # Or clone repository to plugins directory
-git clone https://github.com/yourusername/aseprite-pixelart-plugin.git \
+git clone https://github.com/willibrandon/aseprite-pixelart-plugin.git \
   ~/.claude/plugins/aseprite-pixelart
 ```
 
@@ -168,7 +164,7 @@ The plugin responds to natural language requests:
 /pixel-export gif character-idle.gif fps=2
 ```
 
-**Result:** Authentic Game Boy character with subtle idle animation.
+**Result:** Game Boy character with subtle idle animation.
 
 ### Example 2: NES Tile
 
@@ -191,7 +187,7 @@ The plugin responds to natural language requests:
 /pixel-export png sword.png scale=2
 ```
 
-**Result:** Polished modern pixel art with professional shading.
+**Result:** Modern pixel art with shading and antialiasing.
 
 ### Example 4: Animated Sprite for Game
 
@@ -248,7 +244,7 @@ The plugin responds to natural language requests:
 
 ## Documentation
 
-- [Complete Documentation](docs/DESIGN.md) - Architecture and design
+- [Documentation](docs/DESIGN.md) - Architecture and design
 - [Implementation Guide](docs/IMPLEMENTATION_GUIDE.md) - Development guide
 - [Skills Reference](skills/) - Detailed Skill documentation
 - [Commands Reference](commands/) - Slash command documentation
@@ -280,7 +276,7 @@ Platform-specific paths:
 - Check output path is writable
 - Verify format is supported (png, gif, sheet, json)
 
-See [Known Issues](docs/KNOWN_ISSUES.md) for complete troubleshooting guide.
+See [Known Issues](docs/KNOWN_ISSUES.md) for additional troubleshooting information.
 
 ## Platform Support
 
@@ -317,20 +313,16 @@ This project is licensed under the MIT License - see [LICENSE](LICENSE) file for
 
 ## Links
 
-- **Repository**: https://github.com/yourusername/aseprite-pixelart-plugin
-- **Issues**: https://github.com/yourusername/aseprite-pixelart-plugin/issues
+- **Repository**: https://github.com/willibrandon/aseprite-pixelart-plugin
+- **Issues**: https://github.com/willibrandon/aseprite-pixelart-plugin/issues
 - **Aseprite**: https://www.aseprite.org/
 - **Claude Code**: https://claude.com/code
 
 ## Support
 
-- 📧 Email: your.email@example.com
-- 💬 Discussions: https://github.com/yourusername/aseprite-pixelart-plugin/discussions
-- 🐛 Bug Reports: https://github.com/yourusername/aseprite-pixelart-plugin/issues
-
----
-
-Made with ❤️ for pixel artists and game developers
+- Email: your.email@example.com
+- Discussions: https://github.com/willibrandon/aseprite-pixelart-plugin/discussions
+- Bug Reports: https://github.com/willibrandon/aseprite-pixelart-plugin/issues
 ```
 
 ---
@@ -364,7 +356,7 @@ grep "Example" README.md
 
 ```bash
 git add README.md
-git commit -m "docs: create comprehensive README
+git commit -m "docs: create README
 
 - Add quick start guide
 - Document all commands and natural language usage
@@ -372,8 +364,6 @@ git commit -m "docs: create comprehensive README
 - List all palette presets and export formats
 - Add troubleshooting section
 - Document platform support
-- Include badges and links
-- Add contributing guidelines reference
 
 Chunk: 7.1"
 ```
@@ -552,7 +542,7 @@ Include:
 
 1. **Fork and Clone**
    ```bash
-   git clone https://github.com/yourusername/aseprite-pixelart-plugin.git
+   git clone https://github.com/willibrandon/aseprite-pixelart-plugin.git
    cd aseprite-pixelart-plugin
    ```
 
@@ -593,8 +583,8 @@ Include:
 
 1. Clone repositories:
    ```bash
-   git clone https://github.com/yourusername/aseprite-pixelart-plugin.git
-   git clone https://github.com/yourusername/aseprite-mcp.git
+   git clone https://github.com/willibrandon/aseprite-pixelart-plugin.git
+   git clone https://github.com/willibrandon/aseprite-mcp.git
    ```
 
 2. Build aseprite-mcp:
@@ -791,8 +781,8 @@ Maintainers follow this process:
 ## Questions?
 
 - Check [Documentation](docs/)
-- Search [Issues](https://github.com/yourusername/aseprite-pixelart-plugin/issues)
-- Ask in [Discussions](https://github.com/yourusername/aseprite-pixelart-plugin/discussions)
+- Search [Issues](https://github.com/willibrandon/aseprite-pixelart-plugin/issues)
+- Ask in [Discussions](https://github.com/willibrandon/aseprite-pixelart-plugin/discussions)
 
 Thank you for contributing! 🎨
 ```
@@ -990,7 +980,7 @@ wc -l CHANGELOG.md
 # 2. Verify CONTRIBUTING.md created
 wc -l CONTRIBUTING.md
 
-# Should be comprehensive
+# Should cover all topics
 
 # 3. Check issue templates created
 ls -la .github/ISSUE_TEMPLATE/
@@ -1091,17 +1081,17 @@ cat docs/IMPLEMENTATION_GUIDE.md | head -50
 1. **README.md**: Replace placeholder URLs
    ```markdown
    OLD: https://github.com/yourusername/aseprite-pixelart-plugin
-   NEW: https://github.com/actualusername/aseprite-pixelart-plugin
+   NEW: https://github.com/willibrandon/aseprite-pixelart-plugin
    ```
 
 2. **.claude-plugin/plugin.json**: Update repository URLs
    ```json
-   "homepage": "https://github.com/actualusername/aseprite-pixelart-plugin",
+   "homepage": "https://github.com/willibrandon/aseprite-pixelart-plugin",
    "repository": {
-     "url": "https://github.com/actualusername/aseprite-pixelart-plugin.git"
+     "url": "https://github.com/willibrandon/aseprite-pixelart-plugin.git"
    },
    "bugs": {
-     "url": "https://github.com/actualusername/aseprite-pixelart-plugin/issues"
+     "url": "https://github.com/willibrandon/aseprite-pixelart-plugin/issues"
    }
    ```
 
@@ -1244,7 +1234,7 @@ MIT License - see [LICENSE](LICENSE)
 
 **Full Changelog**: See [CHANGELOG.md](CHANGELOG.md)
 
-**Download**: [Source code (zip)](https://github.com/yourusername/aseprite-pixelart-plugin/archive/refs/tags/v1.0.0.zip) | [Source code (tar.gz)](https://github.com/yourusername/aseprite-pixelart-plugin/archive/refs/tags/v1.0.0.tar.gz)
+**Download**: [Source code (zip)](https://github.com/willibrandon/aseprite-pixelart-plugin/archive/refs/tags/v1.0.0.zip) | [Source code (tar.gz)](https://github.com/willibrandon/aseprite-pixelart-plugin/archive/refs/tags/v1.0.0.tar.gz)
 ```
 
 ---
@@ -1306,7 +1296,7 @@ git push origin main
 git push origin v1.0.0
 
 # 5. Create GitHub release (if repository is public)
-# Visit: https://github.com/yourusername/aseprite-pixelart-plugin/releases/new
+# Visit: https://github.com/willibrandon/aseprite-pixelart-plugin/releases/new
 # - Tag: v1.0.0
 # - Title: Aseprite Pixel Art Plugin v1.0.0
 # - Description: (paste release notes from above)
