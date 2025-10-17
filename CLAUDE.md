@@ -7,6 +7,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 This is a Claude Code plugin that integrates Aseprite pixel art capabilities through the aseprite-mcp Model Context Protocol server. The plugin enables pixel art creation, editing, and export using natural language commands.
 
 **Plugin Name:** aseprite-pixelart
+**Version:** 0.1.0
 **Type:** Claude Code Plugin (Skills + Commands + MCP Integration)
 **Dependencies:** aseprite-mcp server (Go binary), Aseprite v1.3.0+
 
@@ -21,59 +22,12 @@ The plugin follows a layered architecture:
 
 **Key Integration Point:** The plugin bundles pre-compiled aseprite-mcp binaries and provides a platform-detection wrapper (`bin/aseprite-mcp`) that selects the correct binary for macOS, Linux, or Windows.
 
-## Development Workflow
-
-### Using Custom Commands
-
-This project uses three custom slash commands for chunk-based implementation:
-
-- **`/next`** - Identifies the next implementation chunk based on git history
-- **`/proceed`** - Implements the entire chunk following the Implementation Guide
-- **`/commit`** - Validates and commits staged changes with proper formatting
-
-**Workflow:**
-```
-1. /next      # Find next chunk
-2. /proceed   # Implement chunk completely
-3. /commit    # Verify and commit with "Chunk: X.Y" footer
-```
-
-### Implementation Guide
-
-Follow `docs/IMPLEMENTATION_GUIDE.md` strictly. The guide is organized into 7 phases with bite-sized chunks (1.1, 1.2, 2.1, etc.). Each chunk:
-- Has a focused objective
-- Provides exact file contents
-- Includes verification steps
-- Requires a git commit before proceeding
-
-**Important:** Complete chunks sequentially. Do not skip ahead or combine chunks.
-
-### Git Commit Format
-
-```
-<type>(<scope>): <subject>
-
-<body with bulleted changes>
-
-Chunk: X.Y
-```
-
-**Types:** feat, fix, docs, chore, test
-**Scopes:** foundation, mcp, skills, commands, config, docs
-
-The "Chunk: X.Y" footer is required for progress tracking.
-
 ## Directory Structure
 
 ```
 aseprite-pixelart-plugin/
 ├── .claude-plugin/
 │   └── plugin.json                 # Plugin manifest
-├── .claude/
-│   └── commands/                   # Custom slash commands
-│       ├── next.md
-│       ├── proceed.md
-│       └── commit.md
 ├── skills/                         # Model-invoked Skills
 │   ├── pixel-art-creator/
 │   │   ├── SKILL.md               # Required: frontmatter + instructions
@@ -100,10 +54,14 @@ aseprite-pixelart-plugin/
 │   ├── detect-aseprite.sh         # Path detection helper
 │   └── README.md                  # Configuration guide
 ├── .mcp.json                       # MCP server integration
-└── docs/
-    ├── DESIGN.md                   # Architecture blueprint
-    ├── PRD.md                      # Product requirements
-    └── IMPLEMENTATION_GUIDE.md     # Chunk-based impl guide
+├── docs/
+│   ├── KNOWN_ISSUES.md            # Known issues and limitations
+│   └── TESTING_CHECKLIST.md       # Validation checklist
+├── test-outputs/                   # Test output directory
+├── CHANGELOG.md                    # Version history
+├── CONTRIBUTING.md                 # Contribution guidelines
+├── LICENSE                         # MIT License
+└── README.md                       # User documentation
 ```
 
 **Critical:** Skills and commands must be at plugin root, NOT inside `.claude-plugin/`.
@@ -164,6 +122,13 @@ Command behavior using $1, $2, or $ARGUMENTS for parameters.
 Can include bash execution: !`git status`
 ```
 
+**Five User Commands:**
+1. **pixel-new**: Quick sprite creation with size and palette presets
+2. **pixel-palette**: Palette management (set, optimize, show, export)
+3. **pixel-export**: Multi-format export with options
+4. **pixel-setup**: One-time plugin configuration
+5. **pixel-help**: Help system
+
 ### MCP Server Integration
 
 `.mcp.json` configures the bundled aseprite-mcp server:
@@ -184,24 +149,51 @@ Can include bash execution: !`git status`
 
 **Platform Detection:** The `bin/aseprite-mcp` wrapper script detects OS and architecture, then executes the appropriate binary.
 
-## File Validation
+## Development Guidelines
 
-### JSON Files
+### Git Commit Format
+
+Follow [Conventional Commits](https://www.conventionalcommits.org/):
+
+```
+<type>(<scope>): <subject>
+
+<body with bulleted changes>
+```
+
+**Types:** feat, fix, docs, chore, test, refactor
+**Scopes:** skills, commands, mcp, config, docs, testing
+
+### File Validation
+
+#### JSON Files
 ```bash
 python3 -m json.tool <file>.json > /dev/null && echo "✅ Valid" || echo "❌ Invalid"
 ```
 
-### YAML Frontmatter
+#### YAML Frontmatter
 Extract and manually verify:
 ```bash
 sed -n '/^---$/,/^---$/p' skills/<skill-name>/SKILL.md
 ```
 
-### Shell Scripts
+#### Shell Scripts
 Ensure executable:
 ```bash
 chmod +x config/detect-aseprite.sh
 ```
+
+### Testing
+
+Run the full test suite:
+```bash
+./bin/test-plugin.sh
+```
+
+Individual test suites:
+- `./bin/validate-skills.sh` - Skills validation
+- `./bin/validate-commands.sh` - Commands validation
+- `./bin/test-mcp.sh` - MCP integration test
 
 ## Building MCP Binaries
 
@@ -225,28 +217,21 @@ cp bin/aseprite-mcp-* /Users/brandon/src/aseprite-pixelart-plugin/bin/
 
 ## Key Design Principles
 
-1. **Sequential Implementation**: Follow Implementation Guide chunks in order (1.1 → 1.2 → 2.1 → 2.2, etc.)
+1. **Model-Invoked Skills**: Skills trigger automatically based on trigger keywords in descriptions
 
-2. **Chunk Isolation**: Each chunk is self-contained with verification gates before proceeding
+2. **User-Invoked Commands**: Commands require explicit `/command` invocation
 
-3. **No Wandering**: Chunks have single, focused objectives to prevent scope creep
+3. **Progressive Disclosure**: Skills load supporting files (reference.md, examples.md) only when needed
 
-4. **Model-Invoked Skills**: Skills trigger automatically based on trigger keywords in descriptions
+4. **Platform Awareness**: Plugin supports macOS (Intel/ARM), Linux (x86_64/ARM64), Windows (x86_64)
 
-5. **User-Invoked Commands**: Commands require explicit `/command` invocation
+5. **MCP Tools**: All aseprite-mcp tools prefixed with `mcp__aseprite__*` (e.g., `mcp__aseprite__create_canvas`)
 
-6. **Progressive Disclosure**: Skills load supporting files (reference.md, examples.md) only when needed
+6. **Natural Language First**: Users can create pixel art through conversational requests
 
-7. **Platform Awareness**: Plugin supports macOS (Intel/ARM), Linux (x86_64/ARM64), Windows (x86_64)
-
-8. **MCP Tools**: All aseprite-mcp tools prefixed with `mcp__aseprite__*` (e.g., `mcp__aseprite__create_canvas`)
+7. **Retro Gaming Focus**: Supports classic console palettes and pixel art techniques
 
 ## Common Tasks
-
-### Finding Current Progress
-```bash
-git log --oneline --grep="Chunk:" | head -10
-```
 
 ### Validating Plugin Structure
 ```bash
@@ -263,19 +248,12 @@ bin/aseprite-mcp --version          # Should show version
 bin/aseprite-mcp --health            # May fail without Aseprite configured
 ```
 
-### Checking Chunk Progress
-Use the custom commands:
+### Running Validation Tests
 ```bash
-/next      # Shows next chunk to implement
-/proceed   # Implements the chunk
-/commit    # Commits with proper format
+./bin/test-plugin.sh                # Run all tests
+./bin/validate-skills.sh            # Validate Skills only
+./bin/validate-commands.sh          # Validate commands only
 ```
-
-## Reference Documentation
-
-- **DESIGN.md**: Complete architecture, component specifications, directory structure
-- **PRD.md**: User stories, requirements, success metrics
-- **IMPLEMENTATION_GUIDE.md**: Step-by-step chunk-based implementation (phases 1-7)
 
 ## External Dependencies
 
@@ -291,9 +269,17 @@ Use the custom commands:
 
 ## Important Notes
 
-- **Never skip chunks** - Each builds on previous work
 - **All Skills need SKILL.md** with valid YAML frontmatter
-- **Commit messages must include "Chunk: X.Y"** for tracking
 - **Use ${CLAUDE_PLUGIN_ROOT}** in .mcp.json for plugin-relative paths
 - **Skills at root, not in .claude-plugin/** - Common mistake to avoid
-- **Test verification steps before committing** - Required for each chunk
+- **Test before releasing** - Run full test suite
+- **Version management** - Update plugin.json, CHANGELOG.md together
+- **Platform binaries** - Rebuild all architectures when updating aseprite-mcp
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, coding guidelines, and submission process.
+
+## Version History
+
+See [CHANGELOG.md](CHANGELOG.md) for detailed version history and release notes.
