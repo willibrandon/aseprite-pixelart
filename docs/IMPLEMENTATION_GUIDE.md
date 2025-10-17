@@ -674,20 +674,34 @@ git log --oneline
 mkdir -p /tmp/aseprite-mcp-download
 cd /tmp/aseprite-mcp-download
 
-# Download binaries from GitHub release v0.1.0
-# Note: Adjust URLs if the release asset names differ
-curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-darwin-amd64
-curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-darwin-arm64
-curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-linux-amd64
-curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-linux-arm64
-curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp-windows-amd64.exe
+# Download tar.gz archives from GitHub release v0.1.0
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp_0.1.0_Darwin_x86_64.tar.gz
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp_0.1.0_Darwin_arm64.tar.gz
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp_0.1.0_Linux_x86_64.tar.gz
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp_0.1.0_Linux_arm64.tar.gz
+curl -L -O https://github.com/willibrandon/aseprite-mcp/releases/download/v0.1.0/aseprite-mcp_0.1.0_Windows_x86_64.tar.gz
 
-# Verify downloads
-ls -lh
+# Extract all archives
+for f in *.tar.gz; do tar -xzf "$f"; done
+
+# Rename binaries to expected names
+mv aseprite-mcp aseprite-mcp-darwin-amd64 2>/dev/null || true
+# The actual binary name in the Darwin_x86_64 archive
+if [ -f aseprite-mcp ]; then mv aseprite-mcp aseprite-mcp-darwin-amd64; fi
+# Extract each and rename properly
+rm -rf bin extracted 2>/dev/null || true
+mkdir -p extracted
+
+# Extract and rename each platform's binary
+tar -xzf aseprite-mcp_0.1.0_Darwin_x86_64.tar.gz -C extracted && mv extracted/aseprite-mcp aseprite-mcp-darwin-amd64
+tar -xzf aseprite-mcp_0.1.0_Darwin_arm64.tar.gz -C extracted && mv extracted/aseprite-mcp aseprite-mcp-darwin-arm64
+tar -xzf aseprite-mcp_0.1.0_Linux_x86_64.tar.gz -C extracted && mv extracted/aseprite-mcp aseprite-mcp-linux-amd64
+tar -xzf aseprite-mcp_0.1.0_Linux_arm64.tar.gz -C extracted && mv extracted/aseprite-mcp aseprite-mcp-linux-arm64
+tar -xzf aseprite-mcp_0.1.0_Windows_x86_64.tar.gz -C extracted && mv extracted/aseprite-mcp.exe aseprite-mcp-windows-amd64.exe
 
 # Copy binaries to plugin directory
 cd /Users/brandon/src/aseprite-pixelart
-cp /tmp/aseprite-mcp-download/* bin/
+cp /tmp/aseprite-mcp-download/aseprite-mcp-* bin/
 
 # Make binaries executable
 chmod +x bin/aseprite-mcp-*

@@ -2,7 +2,7 @@
 .claude/
 
 # Build artifacts
-bin/aseprite-mcp*
+# (Binaries are committed as part of the plugin distribution)
 !bin/.gitkeep
 
 # IDE
