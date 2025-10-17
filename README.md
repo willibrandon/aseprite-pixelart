@@ -283,9 +283,9 @@ See [Known Issues](docs/KNOWN_ISSUES.md) for additional troubleshooting informat
 
 ## Platform Support
 
-- ✅ macOS (Intel and Apple Silicon)
-- ✅ Linux (x86_64 and ARM64)
-- ✅ Windows (x86_64)
+- macOS (Intel and Apple Silicon)
+- Linux (x86_64 and ARM64)
+- Windows (x86_64)
 
 ## Requirements
 
