@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "aseprite": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/aseprite-mcp",
+      "args": [],
+      "env": {
+        "CONFIG_PATH": "${CLAUDE_PLUGIN_ROOT}/config/aseprite-mcp-config.json"
+      }
+    }
+  }
+}
