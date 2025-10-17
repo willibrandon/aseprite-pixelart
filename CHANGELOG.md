@@ -7,18 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added
-- Initial plugin structure
-- Project foundation and documentation
-
-## [1.0.0] - TBD
+## [0.1.0] - 2025-01-16
 
 ### Added
-- Four core Skills: pixel-art-creator, pixel-art-animator, pixel-art-professional, pixel-art-exporter
-- Five slash commands: /pixel-new, /pixel-palette, /pixel-export, /pixel-setup, /pixel-help
+
+#### Core Skills
+- **pixel-art-creator** - Canvas creation, layers, and basic drawing
+- **pixel-art-animator** - Frame management and animation
+- **pixel-art-professional** - Dithering, palettes, shading, and antialiasing
+- **pixel-art-exporter** - PNG, GIF, spritesheet, and JSON export
+
+#### Slash Commands
+- `/pixel-new` - Quick sprite creation with size and palette presets
+- `/pixel-palette` - Palette management (set, optimize, show, export)
+- `/pixel-export` - Multi-format export with options
+- `/pixel-setup` - One-time plugin configuration
+- `/pixel-help` - Help system
+
+#### Features
+- Natural language sprite creation and editing
+- 12+ retro palette presets (NES, Game Boy, C64, PICO-8, etc.)
+- Dithering support (Floyd-Steinberg, Bayer matrices)
+- Animation with frame management, tags, and timing
+- Spritesheet layouts (horizontal, vertical, grid, packed)
+- JSON metadata export for Unity, Godot, Phaser, TexturePacker
+- Pixel-perfect scaling (1x, 2x, 4x, 8x)
+- Cross-platform support (macOS, Linux, Windows)
+
+#### Infrastructure
 - MCP server integration with aseprite-mcp
-- Cross-platform binary support (macOS, Linux, Windows)
-- Comprehensive documentation
+- Pre-compiled binaries for all platforms
+- Automated test suite with validation scripts
+- Testing checklist with 45+ tests
+- Known issues documentation
 
-[Unreleased]: https://github.com/willibrandon/aseprite-pixelart-plugin/compare/v1.0.0...HEAD
-[1.0.0]: https://github.com/willibrandon/aseprite-pixelart-plugin/releases/tag/v1.0.0
+[Unreleased]: https://github.com/willibrandon/aseprite-pixelart-plugin/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/willibrandon/aseprite-pixelart-plugin/releases/tag/v0.1.0
