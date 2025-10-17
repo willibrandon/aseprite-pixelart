@@ -6,8 +6,8 @@
     "name": "Brandon Williams",
     "url": "https://github.com/willibrandon"
   },
-  "repository": "https://github.com/willibrandon/aseprite-pixelart-plugin",
-  "homepage": "https://github.com/willibrandon/aseprite-pixelart-plugin",
+  "repository": "https://github.com/willibrandon/aseprite-pixelart",
+  "homepage": "https://github.com/willibrandon/aseprite-pixelart",
   "license": "MIT",
   "keywords": [
     "pixel-art",
