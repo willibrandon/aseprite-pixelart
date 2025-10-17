@@ -1,0 +1,56 @@
+#!/bin/bash
+# Wrapper script to select the correct aseprite-mcp binary for the current platform
+
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+# Detect platform
+OS="$(uname -s)"
+ARCH="$(uname -m)"
+
+case "$OS" in
+    Darwin)
+        case "$ARCH" in
+            x86_64)
+                BINARY="$SCRIPT_DIR/aseprite-mcp-darwin-amd64"
+                ;;
+            arm64)
+                BINARY="$SCRIPT_DIR/aseprite-mcp-darwin-arm64"
+                ;;
+            *)
+                echo "Error: Unsupported macOS architecture: $ARCH" >&2
+                exit 1
+                ;;
+        esac
+        ;;
+    Linux)
+        case "$ARCH" in
+            x86_64)
+                BINARY="$SCRIPT_DIR/aseprite-mcp-linux-amd64"
+                ;;
+            aarch64|arm64)
+                BINARY="$SCRIPT_DIR/aseprite-mcp-linux-arm64"
+                ;;
+            *)
+                echo "Error: Unsupported Linux architecture: $ARCH" >&2
+                exit 1
+                ;;
+        esac
+        ;;
+    MINGW*|MSYS*|CYGWIN*)
+        BINARY="$SCRIPT_DIR/aseprite-mcp-windows-amd64.exe"
+        ;;
+    *)
+        echo "Error: Unsupported operating system: $OS" >&2
+        exit 1
+        ;;
+esac
+
+if [ ! -x "$BINARY" ]; then
+    echo "Error: Binary not found or not executable: $BINARY" >&2
+    exit 1
+fi
+
+# Execute the appropriate binary with all arguments
+exec "$BINARY" "$@"
