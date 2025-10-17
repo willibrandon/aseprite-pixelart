@@ -4,12 +4,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Claude Code plugin that integrates Aseprite pixel art capabilities through the aseprite-mcp Model Context Protocol server. The plugin enables pixel art creation, editing, and export using natural language commands.
+This is a Claude Code plugin that integrates Aseprite pixel art capabilities through the pixel-mcp Model Context Protocol server. The plugin enables pixel art creation, editing, and export using natural language commands.
 
-**Plugin Name:** aseprite-pixelart
+**Plugin Name:** pixel-plugin
 **Version:** 0.1.0
 **Type:** Claude Code Plugin (Skills + Commands + MCP Integration)
-**Dependencies:** aseprite-mcp server (Go binary), Aseprite v1.3.0+
+**Dependencies:** pixel-mcp server (Go binary), Aseprite v1.3.0+
 
 ## Architecture
 
@@ -17,15 +17,15 @@ The plugin follows a layered architecture:
 
 1. **User Layer**: Natural language or slash commands in Claude Code
 2. **Plugin Layer**: Skills (model-invoked) and Commands (user-invoked)
-3. **MCP Layer**: aseprite-mcp server (40+ tools)
+3. **MCP Layer**: pixel-mcp server (40+ tools)
 4. **Application Layer**: Aseprite CLI interactions
 
-**Key Integration Point:** The plugin bundles pre-compiled aseprite-mcp binaries and provides a platform-detection wrapper (`bin/aseprite-mcp`) that selects the correct binary for macOS, Linux, or Windows.
+**Key Integration Point:** The plugin bundles pre-compiled pixel-mcp binaries and provides a platform-detection wrapper (`bin/pixel-mcp`) that selects the correct binary for macOS, Linux, or Windows.
 
 ## Directory Structure
 
 ```
-aseprite-pixelart-plugin/
+pixel-plugin-plugin/
 ├── .claude-plugin/
 │   └── plugin.json                 # Plugin manifest
 ├── skills/                         # Model-invoked Skills
@@ -43,14 +43,14 @@ aseprite-pixelart-plugin/
 │   ├── pixel-setup.md
 │   └── pixel-help.md
 ├── bin/                            # MCP server binaries
-│   ├── aseprite-mcp               # Platform detection wrapper
-│   ├── aseprite-mcp-darwin-amd64
-│   ├── aseprite-mcp-darwin-arm64
-│   ├── aseprite-mcp-linux-amd64
-│   ├── aseprite-mcp-linux-arm64
-│   └── aseprite-mcp-windows-amd64.exe
+│   ├── pixel-mcp               # Platform detection wrapper
+│   ├── pixel-mcp-darwin-amd64
+│   ├── pixel-mcp-darwin-arm64
+│   ├── pixel-mcp-linux-amd64
+│   ├── pixel-mcp-linux-arm64
+│   └── pixel-mcp-windows-amd64.exe
 ├── config/
-│   ├── aseprite-mcp-config.json   # Template for users
+│   ├── pixel-mcp-config.json   # Template for users
 │   ├── detect-aseprite.sh         # Path detection helper
 │   └── README.md                  # Configuration guide
 ├── .mcp.json                       # MCP server integration
@@ -131,23 +131,23 @@ Can include bash execution: !`git status`
 
 ### MCP Server Integration
 
-`.mcp.json` configures the bundled aseprite-mcp server:
+`.mcp.json` configures the bundled pixel-mcp server:
 
 ```json
 {
   "mcpServers": {
     "aseprite": {
-      "command": "${CLAUDE_PLUGIN_ROOT}/bin/aseprite-mcp",
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/pixel-mcp",
       "args": [],
       "env": {
-        "CONFIG_PATH": "${CLAUDE_PLUGIN_ROOT}/config/aseprite-mcp-config.json"
+        "CONFIG_PATH": "${CLAUDE_PLUGIN_ROOT}/config/pixel-mcp-config.json"
       }
     }
   }
 }
 ```
 
-**Platform Detection:** The `bin/aseprite-mcp` wrapper script detects OS and architecture, then executes the appropriate binary.
+**Platform Detection:** The `bin/pixel-mcp` wrapper script detects OS and architecture, then executes the appropriate binary.
 
 ## Development Guidelines
 
@@ -197,22 +197,22 @@ Individual test suites:
 
 ## Building MCP Binaries
 
-Located at `/Users/brandon/src/aseprite-mcp`:
+Located at `/Users/brandon/src/pixel-mcp`:
 
 ```bash
-cd /Users/brandon/src/aseprite-mcp
+cd /Users/brandon/src/pixel-mcp
 make clean
 make release
 
 # Binaries created in bin/:
-# - aseprite-mcp-darwin-amd64
-# - aseprite-mcp-darwin-arm64
-# - aseprite-mcp-linux-amd64
-# - aseprite-mcp-linux-arm64
-# - aseprite-mcp-windows-amd64.exe
+# - pixel-mcp-darwin-amd64
+# - pixel-mcp-darwin-arm64
+# - pixel-mcp-linux-amd64
+# - pixel-mcp-linux-arm64
+# - pixel-mcp-windows-amd64.exe
 
 # Copy to plugin:
-cp bin/aseprite-mcp-* /Users/brandon/src/aseprite-pixelart-plugin/bin/
+cp bin/pixel-mcp-* /Users/brandon/src/pixel-plugin-plugin/bin/
 ```
 
 ## Key Design Principles
@@ -225,7 +225,7 @@ cp bin/aseprite-mcp-* /Users/brandon/src/aseprite-pixelart-plugin/bin/
 
 4. **Platform Awareness**: Plugin supports macOS (Intel/ARM), Linux (x86_64/ARM64), Windows (x86_64)
 
-5. **MCP Tools**: All aseprite-mcp tools prefixed with `mcp__aseprite__*` (e.g., `mcp__aseprite__create_canvas`)
+5. **MCP Tools**: All pixel-mcp tools prefixed with `mcp__aseprite__*` (e.g., `mcp__aseprite__create_canvas`)
 
 6. **Natural Language First**: Users can create pixel art through conversational requests
 
@@ -239,13 +239,13 @@ ls -la .claude-plugin/plugin.json    # Must exist
 ls -la .mcp.json                     # Must exist
 ls -la skills/                       # Must be at root
 ls -la commands/                     # Must be at root
-ls -la bin/aseprite-mcp              # Must be executable
+ls -la bin/pixel-mcp              # Must be executable
 ```
 
 ### Testing MCP Server
 ```bash
-bin/aseprite-mcp --version          # Should show version
-bin/aseprite-mcp --health            # May fail without Aseprite configured
+bin/pixel-mcp --version          # Should show version
+bin/pixel-mcp --health            # May fail without Aseprite configured
 ```
 
 ### Running Validation Tests
@@ -257,7 +257,7 @@ bin/aseprite-mcp --health            # May fail without Aseprite configured
 
 ## External Dependencies
 
-- **aseprite-mcp**: Go-based MCP server at `/Users/brandon/src/aseprite-mcp`
+- **pixel-mcp**: Go-based MCP server at `/Users/brandon/src/pixel-mcp`
   - Provides 40+ tools for pixel art operations
   - Built with Go 1.23+
   - Communicates with Aseprite via CLI
@@ -274,7 +274,7 @@ bin/aseprite-mcp --health            # May fail without Aseprite configured
 - **Skills at root, not in .claude-plugin/** - Common mistake to avoid
 - **Test before releasing** - Run full test suite
 - **Version management** - Update plugin.json, CHANGELOG.md together
-- **Platform binaries** - Rebuild all architectures when updating aseprite-mcp
+- **Platform binaries** - Rebuild all architectures when updating pixel-mcp
 
 ## Contributing
 

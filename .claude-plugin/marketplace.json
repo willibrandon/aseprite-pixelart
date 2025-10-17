@@ -1,12 +1,12 @@
 {
-  "name": "aseprite-pixelart",
+  "name": "pixel-plugin",
   "owner": {
     "name": "Brandon Williams",
     "url": "https://github.com/willibrandon"
   },
   "plugins": [
     {
-      "name": "aseprite-pixelart",
+      "name": "pixel-plugin",
       "source": "./",
       "description": "Create, animate, and export pixel art using Aseprite through natural language and commands"
     }

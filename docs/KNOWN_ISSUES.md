@@ -159,11 +159,11 @@ Items not considered issues, but potential improvements:
 
 Found a bug not listed here?
 
-1. Check if it's already reported: [GitHub Issues](https://github.com/willibrandon/aseprite-pixelart/issues)
+1. Check if it's already reported: [GitHub Issues](https://github.com/willibrandon/pixel-plugin/issues)
 2. Verify it's reproducible
 3. Note your platform, Aseprite version, plugin version
 4. Include steps to reproduce
-5. Report at: https://github.com/willibrandon/aseprite-pixelart/issues/new
+5. Report at: https://github.com/willibrandon/pixel-plugin/issues/new
 
 ---
 

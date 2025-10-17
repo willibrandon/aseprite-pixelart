@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to the Aseprite Pixel Art Plugin will be documented in this file.
+All notable changes to the Pixel Plugin will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -35,11 +35,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Cross-platform support (macOS, Linux, Windows)
 
 #### Infrastructure
-- MCP server integration with aseprite-mcp
+- MCP server integration with pixel-mcp
 - Pre-compiled binaries for all platforms
 - Automated test suite with validation scripts
 - Testing checklist with 45+ tests
 - Known issues documentation
 
-[Unreleased]: https://github.com/willibrandon/aseprite-pixelart-plugin/compare/v0.1.0...HEAD
-[0.1.0]: https://github.com/willibrandon/aseprite-pixelart-plugin/releases/tag/v0.1.0
+[Unreleased]: https://github.com/willibrandon/pixel-plugin/compare/v0.1.0...HEAD
+[0.1.0]: https://github.com/willibrandon/pixel-plugin/releases/tag/v0.1.0

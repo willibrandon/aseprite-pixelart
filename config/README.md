@@ -2,22 +2,22 @@
 
 ## Aseprite MCP Server Configuration
 
-The aseprite-mcp server requires Aseprite to be installed and configured.
+The pixel-mcp server requires Aseprite to be installed and configured.
 
 ### Configuration Location
 
-By default, aseprite-mcp looks for configuration at:
-- **macOS/Linux**: `~/.config/aseprite-mcp/config.json`
-- **Windows**: `%APPDATA%\aseprite-mcp\config.json`
+By default, pixel-mcp looks for configuration at:
+- **macOS/Linux**: `~/.config/pixel-mcp/config.json`
+- **Windows**: `%APPDATA%\pixel-mcp\config.json`
 
 ### Configuration Format
 
-The plugin includes a template at `config/aseprite-mcp-config.json`:
+The plugin includes a template at `config/pixel-mcp-config.json`:
 
 ```json
 {
   "aseprite_path": "/path/to/aseprite",
-  "temp_dir": "/tmp/aseprite-mcp",
+  "temp_dir": "/tmp/pixel-mcp",
   "timeout": 30,
   "log_level": "info",
   "log_file": "",
@@ -50,12 +50,12 @@ This will:
 
 1. Create the config directory:
 ```bash
-mkdir -p ~/.config/aseprite-mcp
+mkdir -p ~/.config/pixel-mcp
 ```
 
 2. Copy the template:
 ```bash
-cp config/aseprite-mcp-config.json ~/.config/aseprite-mcp/config.json
+cp config/pixel-mcp-config.json ~/.config/pixel-mcp/config.json
 ```
 
 3. Edit the config file and set `aseprite_path`:
@@ -72,10 +72,10 @@ cp config/aseprite-mcp-config.json ~/.config/aseprite-mcp/config.json
 
 ### Verifying Configuration
 
-Test that aseprite-mcp can find Aseprite:
+Test that pixel-mcp can find Aseprite:
 
 ```bash
-${CLAUDE_PLUGIN_ROOT}/bin/aseprite-mcp --health
+${CLAUDE_PLUGIN_ROOT}/bin/pixel-mcp --health
 ```
 
 Should output:
@@ -93,7 +93,7 @@ Should output:
 - Ensure the path points to the executable, not the .app directory (on macOS)
 
 **Error: "Permission denied"**
-- Ensure aseprite-mcp binary is executable: `chmod +x bin/aseprite-mcp`
+- Ensure pixel-mcp binary is executable: `chmod +x bin/pixel-mcp`
 - Ensure Aseprite binary is executable
 
 **Error: "Timeout"**
@@ -126,7 +126,7 @@ C:\Program Files (x86)\Aseprite\Aseprite.exe
 ```json
 {
   "log_level": "debug",
-  "log_file": "/tmp/aseprite-mcp.log"
+  "log_file": "/tmp/pixel-mcp.log"
 }
 ```
 

@@ -2,7 +2,7 @@
 
 Create, animate, and export pixel art using Aseprite through natural language and commands in Claude Code.
 
-*Powered by [aseprite-mcp](https://github.com/willibrandon/aseprite-mcp) - a Model Context Protocol server for Aseprite.*
+*Powered by [pixel-mcp](https://github.com/willibrandon/pixel-mcp) - a Model Context Protocol server for Aseprite.*
 
 ## Features
 
@@ -30,7 +30,7 @@ Create, animate, and export pixel art using Aseprite through natural language an
 
 ## How It Works
 
-This plugin uses the [aseprite-mcp](https://github.com/willibrandon/aseprite-mcp) Model Context Protocol server to communicate with Aseprite. The MCP server provides 40+ tools for pixel art operations and is bundled with the plugin.
+This plugin uses the [pixel-mcp](https://github.com/willibrandon/pixel-mcp) Model Context Protocol server to communicate with Aseprite. The MCP server provides 40+ tools for pixel art operations and is bundled with the plugin.
 
 ## Quick Start
 
@@ -49,33 +49,33 @@ In Claude Code, run:
 ```
 Then:
 1. Select "Add marketplace"
-2. Enter: `willibrandon/aseprite-pixelart` (for GitHub) or `./path/to/local/marketplace` (for local)
+2. Enter: `willibrandon/pixel-plugin` (for GitHub) or `./path/to/local/marketplace` (for local)
 3. Select "Browse and install plugins"
-4. Find and install `aseprite-pixelart`
+4. Find and install `pixel-plugin`
 
 **Option B: From command line**
 
 ```bash
 # Add the GitHub marketplace
-claude plugin marketplace add willibrandon/aseprite-pixelart
+claude plugin marketplace add willibrandon/pixel-plugin
 
 # Install the plugin
-claude plugin install aseprite-pixelart
+claude plugin install pixel-plugin
 ```
 
 **Option C: Local development/testing**
 
 ```bash
 # Clone the repository
-git clone https://github.com/willibrandon/aseprite-pixelart.git
-cd aseprite-pixelart
+git clone https://github.com/willibrandon/pixel-plugin.git
+cd pixel-plugin
 
 # Add as local marketplace (from parent directory)
 cd ..
-claude plugin marketplace add ./aseprite-pixelart
+claude plugin marketplace add ./pixel-plugin
 
 # Install from local source
-claude plugin install aseprite-pixelart@aseprite-pixelart
+claude plugin install pixel-plugin@pixel-plugin
 ```
 
 ### 3. Setup
@@ -269,9 +269,9 @@ Platform-specific paths:
 ### "MCP server not responding"
 
 1. Verify Aseprite is installed and accessible
-2. Check configuration: `cat ~/.config/aseprite-mcp/config.json`
+2. Check configuration: `cat ~/.config/pixel-mcp/config.json`
 3. Re-run setup: `/pixel-setup`
-4. Check binary permissions: `chmod +x bin/aseprite-mcp`
+4. Check binary permissions: `chmod +x bin/pixel-mcp`
 
 ### "Export failed" or "File not found"
 
@@ -291,7 +291,7 @@ See [Known Issues](docs/KNOWN_ISSUES.md) for additional troubleshooting informat
 
 - **Aseprite**: v1.3.0 or higher
 - **Claude Code**: v1.0.0 or higher
-- **aseprite-mcp**: MCP server (bundled) - [Source](https://github.com/willibrandon/aseprite-mcp)
+- **pixel-mcp**: MCP server (bundled) - [Source](https://github.com/willibrandon/pixel-mcp)
 - **Disk Space**: ~50MB for plugin and binaries
 
 ## Contributing

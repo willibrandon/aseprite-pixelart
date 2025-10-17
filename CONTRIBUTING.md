@@ -21,30 +21,30 @@ Use the GitHub issue tracker to report bugs or suggest features:
 
 ### Prerequisites
 - Aseprite v1.3.0+
-- Go 1.23+ (for building aseprite-mcp binaries)
+- Go 1.23+ (for building pixel-mcp binaries)
 - Bash (for test scripts)
 - Python 3 (for JSON validation)
 
 ### Local Development
 ```bash
 # Clone repositories
-git clone https://github.com/willibrandon/aseprite-pixelart-plugin.git
-git clone https://github.com/willibrandon/aseprite-mcp.git
+git clone https://github.com/willibrandon/pixel-plugin-plugin.git
+git clone https://github.com/willibrandon/pixel-mcp.git
 
-# Build aseprite-mcp
-cd aseprite-mcp
+# Build pixel-mcp
+cd pixel-mcp
 make release
-cp bin/* ../aseprite-pixelart-plugin/bin/
+cp bin/* ../pixel-plugin-plugin/bin/
 
 # Test plugin
-cd ../aseprite-pixelart-plugin
+cd ../pixel-plugin-plugin
 ./bin/test-plugin.sh
 ```
 
 ## Project Structure
 
 ```
-aseprite-pixelart-plugin/
+pixel-plugin-plugin/
 ├── .claude-plugin/       # Plugin metadata
 ├── skills/               # Model-invoked Skills
 ├── commands/             # User-invoked slash commands
@@ -91,6 +91,6 @@ Individual test suites:
 
 ## Questions?
 
-Check existing [issues](https://github.com/willibrandon/aseprite-pixelart-plugin/issues) or open a new one.
+Check existing [issues](https://github.com/willibrandon/pixel-plugin-plugin/issues) or open a new one.
 
 Thank you for contributing!
