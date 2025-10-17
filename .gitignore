@@ -1,2 +1,36 @@
 # Claude files
-.claude/*
+.claude/
+
+# Build artifacts
+bin/aseprite-mcp*
+!bin/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# User configuration (should be set by users)
+config/user-config.json
+
+# Test outputs
+test-outputs/*
+!test-outputs/.gitkeep
+*.ase
+*.aseprite
+*.png
+*.gif
