@@ -1,0 +1,22 @@
+{
+  "name": "aseprite-pixelart",
+  "version": "1.0.0",
+  "description": "Create and edit pixel art sprites using Aseprite through natural language. Provides Skills for autonomous assistance and commands for direct control.",
+  "author": {
+    "name": "Brandon Williams",
+    "url": "https://github.com/willibrandon"
+  },
+  "repository": "https://github.com/willibrandon/aseprite-pixelart-plugin",
+  "homepage": "https://github.com/willibrandon/aseprite-pixelart-plugin",
+  "license": "MIT",
+  "keywords": [
+    "pixel-art",
+    "aseprite",
+    "graphics",
+    "sprites",
+    "animation",
+    "game-dev",
+    "art",
+    "mcp"
+  ]
+}
