@@ -41,13 +41,41 @@ This plugin uses the [aseprite-mcp](https://github.com/willibrandon/aseprite-mcp
 
 ### 2. Installation
 
-```bash
-# Install via Claude Code plugin manager
-/install aseprite-pixelart
+**Option A: Via Claude Code (recommended)**
 
-# Or clone repository to plugins directory
-git clone https://github.com/willibrandon/aseprite-pixelart-plugin.git \
-  ~/.claude/plugins/aseprite-pixelart
+In Claude Code, run:
+```
+/plugin
+```
+Then:
+1. Select "Add marketplace"
+2. Enter: `willibrandon/aseprite-pixelart` (for GitHub) or `./path/to/local/marketplace` (for local)
+3. Select "Browse and install plugins"
+4. Find and install `aseprite-pixelart`
+
+**Option B: From command line**
+
+```bash
+# Add the GitHub marketplace
+claude plugin marketplace add willibrandon/aseprite-pixelart
+
+# Install the plugin
+claude plugin install aseprite-pixelart
+```
+
+**Option C: Local development/testing**
+
+```bash
+# Clone the repository
+git clone https://github.com/willibrandon/aseprite-pixelart.git
+cd aseprite-pixelart
+
+# Add as local marketplace (from parent directory)
+cd ..
+claude plugin marketplace add ./aseprite-pixelart
+
+# Install from local source
+claude plugin install aseprite-pixelart@aseprite-pixelart
 ```
 
 ### 3. Setup
