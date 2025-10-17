@@ -1,6 +1,6 @@
 ---
 name: Pixel Art Professional
-description: Apply advanced pixel art techniques including dithering, palette optimization, shading, antialiasing, and color theory. Use when the user mentions "dithering", "palette", "shading", "antialiasing", "smoothing", "color ramp", "gradients", or wants to refine/polish existing pixel art.
+description: Apply advanced pixel art techniques including dithering, palette optimization, shading, antialiasing, and color theory. Use when the user mentions "dithering", "dither", "Bayer", "Floyd-Steinberg", "palette", "colors", "reduce colors", "optimize palette", "color limit", "shading", "shadows", "highlights", "lighting", "light source", "antialiasing", "smooth", "smoothing", "anti-alias", "AA", "color ramp", "gradient", "hue shifting", "saturation", "value", "contrast", or wants to "refine", "polish", "improve", "enhance", "make better", "add depth", "add dimension" to existing pixel art. Trigger on retro palette names (NES, Game Boy, C64, PICO-8), texture terms ("metal", "fabric", "stone", "wood"), and visual quality terms ("professional", "clean", "smooth", "vibrant").
 allowed-tools: Read, Bash, mcp__aseprite__get_sprite_info, mcp__aseprite__draw_pixels, mcp__aseprite__set_palette, mcp__aseprite__get_palette, mcp__aseprite__quantize_colors, mcp__aseprite__apply_dithering, mcp__aseprite__add_layer, mcp__aseprite__flatten_layers
 ---
 

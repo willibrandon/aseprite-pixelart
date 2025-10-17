@@ -1,6 +1,6 @@
 ---
 name: Pixel Art Animator
-description: Create and manage sprite animations with multiple frames, animation tags, frame durations, and linked cels. Use when the user wants to animate a sprite, mentions "animation", "frames", "walk cycle", "frame rate", or describes motion like "walking" or "running".
+description: Create and manage sprite animations with multiple frames, animation tags, frame durations, and linked cels. Use when the user wants to animate a sprite, add animation, create movement, make it move, mentions "animation", "animated", "frames", "keyframes", "frame rate", "FPS", "timing", "duration", "walk cycle", "run cycle", "idle animation", "attack animation", "jump", "movement", "motion", or describes actions like "walking", "running", "jumping", "attacking", "breathing", "bobbing", "bouncing". Trigger on animation tags, loops, playback, sequences, "add frames", "duplicate frame", "frame timing", "ping-pong", "loop", "sequence". Also for linked cels, static backgrounds, and frame optimization.
 allowed-tools: Read, Bash, mcp__aseprite__add_frame, mcp__aseprite__delete_frame, mcp__aseprite__duplicate_frame, mcp__aseprite__set_frame_duration, mcp__aseprite__create_tag, mcp__aseprite__delete_tag, mcp__aseprite__link_cel, mcp__aseprite__get_sprite_info, mcp__aseprite__draw_pixels, mcp__aseprite__draw_line, mcp__aseprite__draw_rectangle, mcp__aseprite__draw_circle
 ---
 
