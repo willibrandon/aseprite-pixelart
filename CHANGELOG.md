@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2025-10-17
+
+### Changed
+- Updated pixel-mcp dependency to v0.3.0
+- Refreshed all platform binaries (macOS Intel/ARM, Linux x86_64/ARM64, Windows x86_64)
+
 ## [0.1.0] - 2025-01-16
 
 ### Added
@@ -41,5 +47,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Testing checklist with 45+ tests
 - Known issues documentation
 
-[Unreleased]: https://github.com/willibrandon/pixel-plugin/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/willibrandon/pixel-plugin/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/willibrandon/pixel-plugin/compare/v0.1.0...v0.3.0
 [0.1.0]: https://github.com/willibrandon/pixel-plugin/releases/tag/v0.1.0

@@ -1,6 +1,6 @@
 {
   "name": "pixel-plugin",
-  "version": "0.1.0",
+  "version": "0.3.0",
   "description": "Create, animate, and export pixel art using Aseprite through natural language and commands. Supports retro palettes, animation, dithering, and game engine export.",
   "author": {
     "name": "Brandon Williams",
