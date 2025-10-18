@@ -121,4 +121,4 @@ Claude transitions between Skills automatically based on user needs.
 
 ## MCP Server
 
-All Skills use the bundled aseprite-mcp server to communicate with Aseprite. The server provides 40+ tools for pixel art operations. See [aseprite-mcp](https://github.com/willibrandon/aseprite-mcp) for tool documentation.
+All Skills use the bundled pixel-mcp server to communicate with Aseprite. The server provides 40+ tools for pixel art operations. See [pixel-mcp](https://github.com/willibrandon/pixel-mcp) for tool documentation.

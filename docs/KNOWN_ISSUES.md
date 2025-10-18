@@ -18,7 +18,7 @@ This document tracks known issues, limitations, and workarounds for the Aseprite
 
 **Issue:** Permission errors when creating config directory on some macOS versions
 **Impact:** Low
-**Workaround:** Manually create `~/.config/aseprite-mcp/` directory first
+**Workaround:** Manually create `~/.config/pixel-mcp/` directory first
 **Status:** Investigating
 
 ### Linux

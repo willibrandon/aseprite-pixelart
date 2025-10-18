@@ -130,10 +130,10 @@ Commands use `$ARGUMENTS` to access user input and can execute MCP tools to inte
 
 ## MCP Tools Used
 
-Commands use these aseprite-mcp tools:
+Commands use these pixel-mcp tools:
 - `mcp__aseprite__create_canvas` - Create new sprites
 - `mcp__aseprite__set_palette` - Set color palettes
 - `mcp__aseprite__export_sprite` - Export to files
 - `mcp__aseprite__get_sprite_info` - Query sprite properties
 
-See the aseprite-mcp documentation for the full list of available tools.
+See the pixel-mcp documentation for the full list of available tools.

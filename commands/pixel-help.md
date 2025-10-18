@@ -94,7 +94,7 @@ The plugin responds to natural language requests:
 
 ## Documentation
 
-See ~/.claude-plugins/aseprite-pixelart/ for full documentation.
+See ~/.claude-plugins/pixel-plugin/ for full documentation.
 ```
 
 ### Topic-Specific Help

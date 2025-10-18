@@ -24,7 +24,7 @@ The Pixel Art Exporter Skill enables exporting pixel art sprites from Aseprite t
 - **Spritesheet**: Texture atlases with various packing algorithms
 - **JSON**: Frame metadata, animation tags, layer information
 
-This Skill works with the aseprite-mcp server tools to produce production-ready assets for web, games, and applications.
+This Skill works with the pixel-mcp server tools to produce production-ready assets for web, games, and applications.
 
 ## When to Use
 

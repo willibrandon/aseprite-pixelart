@@ -1,12 +1,12 @@
 ---
-description: Configure aseprite-mcp server and verify Aseprite installation
+description: Configure pixel-mcp server and verify Aseprite installation
 argument-hint: [aseprite-path]
 allowed-tools: Read, Write, Bash
 ---
 
 ## /pixel-setup - Plugin Configuration
 
-Configure the aseprite-mcp server and verify Aseprite installation.
+Configure the pixel-mcp server and verify Aseprite installation.
 
 ### Usage
 
@@ -29,17 +29,17 @@ Configure the aseprite-mcp server and verify Aseprite installation.
    - Windows: `C:\Program Files\Aseprite\Aseprite.exe`
 
 2. **Creates configuration file**
-   - Generates `~/.config/aseprite-mcp/config.json` (macOS/Linux)
-   - Generates `%APPDATA%\aseprite-mcp\config.json` (Windows)
+   - Generates `~/.config/pixel-mcp/config.json` (macOS/Linux)
+   - Generates `%APPDATA%\pixel-mcp\config.json` (Windows)
    - Sets `aseprite_path` in configuration
 
 3. **Validates configuration**
    - Tests that Aseprite executable exists and is executable
-   - Verifies aseprite-mcp can communicate with Aseprite
+   - Verifies pixel-mcp can communicate with Aseprite
    - Reports version information
 
 4. **Tests MCP server**
-   - Runs health check on aseprite-mcp server
+   - Runs health check on pixel-mcp server
    - Confirms tools are accessible
    - Reports success or errors
 
@@ -84,14 +84,14 @@ Configure the aseprite-mcp server and verify Aseprite installation.
 ### Configuration File Format
 
 **Location:**
-- macOS/Linux: `~/.config/aseprite-mcp/config.json`
-- Windows: `%APPDATA%\aseprite-mcp\config.json`
+- macOS/Linux: `~/.config/pixel-mcp/config.json`
+- Windows: `%APPDATA%\pixel-mcp\config.json`
 
 **Contents:**
 ```json
 {
   "aseprite_path": "/path/to/aseprite",
-  "temp_dir": "/tmp/aseprite-mcp",
+  "temp_dir": "/tmp/pixel-mcp",
   "timeout": 30,
   "log_level": "info",
   "log_file": "",
@@ -124,12 +124,12 @@ Configure the aseprite-mcp server and verify Aseprite installation.
 
 **Step 3: Create Configuration**
 1. Determine config directory based on OS
-2. Create directory if it doesn't exist: `mkdir -p ~/.config/aseprite-mcp`
+2. Create directory if it doesn't exist: `mkdir -p ~/.config/pixel-mcp`
 3. Write config.json with aseprite_path and defaults
 4. Set appropriate permissions (readable/writable by user)
 
 **Step 4: Test MCP Server**
-1. Run health check: `${CLAUDE_PLUGIN_ROOT}/bin/aseprite-mcp --health`
+1. Run health check: `${CLAUDE_PLUGIN_ROOT}/bin/pixel-mcp --health`
 2. Capture output and check for success
 3. Report Aseprite version and MCP status
 
@@ -144,7 +144,7 @@ Configure the aseprite-mcp server and verify Aseprite installation.
 
 ```
 ✓ Aseprite detected at: /Applications/Aseprite.app/Contents/MacOS/aseprite
-✓ Configuration created: ~/.config/aseprite-mcp/config.json
+✓ Configuration created: ~/.config/pixel-mcp/config.json
 ✓ Aseprite version: v1.3.2
 ✓ MCP server ready
 
@@ -172,7 +172,7 @@ Please check the path and try again, or run /pixel-setup without arguments for a
 
 **Permission errors:**
 ```
-✗ Cannot create configuration directory: ~/.config/aseprite-mcp
+✗ Cannot create configuration directory: ~/.config/pixel-mcp
   Permission denied
 
 Please check directory permissions or run with appropriate privileges.
@@ -186,7 +186,7 @@ Please check directory permissions or run with appropriate privileges.
 Please check that:
   1. Aseprite path is correct
   2. Aseprite is executable
-  3. aseprite-mcp binary has execute permissions
+  3. pixel-mcp binary has execute permissions
 ```
 
 ### Troubleshooting Tips
@@ -194,8 +194,8 @@ Please check that:
 Include in output if errors occur:
 
 1. **Verify Aseprite is installed**: https://www.aseprite.org/
-2. **Check aseprite-mcp binary permissions**: `chmod +x ${CLAUDE_PLUGIN_ROOT}/bin/aseprite-mcp`
-3. **Manually edit config**: Edit `~/.config/aseprite-mcp/config.json`
+2. **Check pixel-mcp binary permissions**: `chmod +x ${CLAUDE_PLUGIN_ROOT}/bin/pixel-mcp`
+3. **Manually edit config**: Edit `~/.config/pixel-mcp/config.json`
 4. **Test Aseprite directly**: Run `aseprite --version` in terminal
 5. **Check logs**: Set `log_file` in config for debugging
 

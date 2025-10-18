@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Test runner for aseprite-pixelart plugin
+# Test runner for pixel-plugin
 # Runs all validation scripts and reports results
 
 set -e
@@ -16,7 +16,7 @@ SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 PLUGIN_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 echo -e "${BLUE}═══════════════════════════════════════════════════════${NC}"
-echo -e "${BLUE}  Aseprite Pixelart Plugin Test Suite${NC}"
+echo -e "${BLUE}  Pixel Plugin Test Suite${NC}"
 echo -e "${BLUE}═══════════════════════════════════════════════════════${NC}"
 echo ""
 

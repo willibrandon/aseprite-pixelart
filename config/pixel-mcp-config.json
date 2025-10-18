@@ -17,7 +17,7 @@
     "aseprite_path_macos": "/Applications/Aseprite.app/Contents/MacOS/aseprite",
     "aseprite_path_linux": "/usr/bin/aseprite",
     "aseprite_path_windows": "C:\\\\Program Files\\\\Aseprite\\\\Aseprite.exe",
-    "temp_dir_example": "/tmp/aseprite-mcp",
-    "log_file_example": "/tmp/aseprite-mcp.log"
+    "temp_dir_example": "/tmp/pixel-mcp",
+    "log_file_example": "/tmp/pixel-mcp.log"
   }
 }
