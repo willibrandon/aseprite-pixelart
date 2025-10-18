@@ -13,57 +13,67 @@ Comprehensive testing checklist for Aseprite Pixel Art Plugin.
 
 ### pixel-art-creator Skill
 
-- [ ] **Test 1: Basic sprite creation**
+- [x] **Test 1: Basic sprite creation**
   - Request: "Create a 64x64 sprite"
   - Expected: 64x64 RGB canvas created
   - Verify: Canvas size correct, color mode RGB
+  - Result: PASSED - test1-64x64.aseprite (64x64 RGB, valid)
 
-- [ ] **Test 2: Indexed color sprite**
+- [x] **Test 2: Indexed color sprite**
   - Request: "Create a 32x32 Game Boy sprite"
   - Expected: 32x32 Indexed canvas with GB palette
   - Verify: Palette has 4 Game Boy colors
+  - Result: PASSED - test2-32x32-gameboy.aseprite (32x32 Indexed, 4-color GB palette)
 
-- [ ] **Test 3: Drawing shapes**
+- [x] **Test 3: Drawing shapes**
   - Request: "Draw a red circle in the center"
   - Expected: Red circle drawn at canvas center
   - Verify: Circle is properly formed, correct color
+  - Result: PASSED - test3a-red-circle.aseprite (32x32, red circle centered at 16,16, radius 10px)
 
-- [ ] **Test 4: Layer management**
+- [x] **Test 4: Layer management**
   - Request: "Create a sprite with background and character layers"
   - Expected: Canvas with 2 named layers
   - Verify: Layers exist and are named correctly
+  - Result: PASSED - test4-layers.aseprite (64x64 RGB, 2 layers: Background, Character)
 
-- [ ] **Test 5: Complex shape**
+- [x] **Test 5: Complex shape**
   - Request: "Draw a pixelated tree"
   - Expected: Tree-like shape drawn
   - Verify: Recognizable as tree, appropriate colors
+  - Result: PASSED - test5-tree.aseprite (32x32, brown trunk + green foliage, clearly recognizable)
 
 ### pixel-art-animator Skill
 
-- [ ] **Test 6: Add frames**
+- [x] **Test 6: Add frames**
   - Request: "Add 3 frames"
   - Expected: Total frames increases by 3
   - Verify: Frame count correct
+  - Result: PASSED - test6-frames.aseprite (32x32, 4 frames total: 1 original + 3 added)
 
-- [ ] **Test 7: Walk cycle**
+- [x] **Test 7: Walk cycle**
   - Request: "Create a 4-frame walk cycle"
   - Expected: 4 frames with walk animation
   - Verify: Frames show walking motion
+  - Result: PASSED - test7-walk-cycle.aseprite (48x48, 4-frame walk with bobbing motion, alternating limbs, 150ms/frame)
 
-- [ ] **Test 8: Frame timing**
+- [x] **Test 8: Frame timing**
   - Request: "Set all frames to 100ms duration"
   - Expected: All frames have 100ms timing
   - Verify: Frame durations updated
+  - Result: PASSED - test8-frame-duration.aseprite (32x32, 4 frames, all set to 100ms from varying durations)
 
-- [ ] **Test 9: Animation tag**
+- [x] **Test 9: Animation tag**
   - Request: "Create animation tag 'walk' for frames 1-4"
   - Expected: Tag created with correct range
   - Verify: Tag exists with proper settings
+  - Result: PASSED - test9-animation-tag.aseprite (32x32, 4 frames, tag 'walk' frames 1-4 forward direction)
 
-- [ ] **Test 10: Linked cels**
+- [x] **Test 10: Linked cels**
   - Request: "Link the background layer across all frames"
   - Expected: Background cels linked
   - Verify: Editing one cel updates all
+  - Result: PASSED - test10-linked-cels.aseprite (32x32, 4 frames, Background layer linked, sky blue fill across all frames)
 
 ### pixel-art-professional Skill
 

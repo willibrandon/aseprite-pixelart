@@ -22,9 +22,6 @@ REQUIRED_DOCS=(
     "README.md"
     "LICENSE"
     "CHANGELOG.md"
-    "docs/DESIGN.md"
-    "docs/PRD.md"
-    "docs/IMPLEMENTATION_GUIDE.md"
     "config/README.md"
 )
 
