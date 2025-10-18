@@ -7,6 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2025-10-18
+
+### Changed
+- Updated pixel-mcp dependency to v0.5.0
+- Fixed pixel-art-professional skill tool names:
+  - `mcp__aseprite__quantize_colors` → `mcp__aseprite__quantize_palette`
+  - `mcp__aseprite__apply_dithering` → `mcp__aseprite__draw_with_dither`
+
+### Added
+- New MCP tools from pixel-mcp v0.4.0+:
+  - `quantize_palette` - Reduce sprite colors using median_cut, k-means, or octree algorithms with optional dithering
+  - `apply_auto_shading` - Automatically add geometry-based shading to sprites
+- New MCP tool from pixel-mcp v0.5.0:
+  - `flatten_layers` - Flatten all layers into a single layer
+
 ## [0.3.0] - 2025-10-17
 
 ### Changed
@@ -47,6 +62,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Testing checklist with 45+ tests
 - Known issues documentation
 
-[Unreleased]: https://github.com/willibrandon/pixel-plugin/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/willibrandon/pixel-plugin/compare/v0.5.0...HEAD
+[0.5.0]: https://github.com/willibrandon/pixel-plugin/compare/v0.3.0...v0.5.0
 [0.3.0]: https://github.com/willibrandon/pixel-plugin/compare/v0.1.0...v0.3.0
 [0.1.0]: https://github.com/willibrandon/pixel-plugin/releases/tag/v0.1.0
