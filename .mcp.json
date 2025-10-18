@@ -1,14 +1,14 @@
 {
   "mcpServers": {
     "aseprite": {
-      "command": "${CLAUDE_PLUGIN_ROOT}/bin/aseprite-mcp",
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/pixel-mcp",
       "args": [],
       "env": {
-        "ASEPRITE_MCP_CONFIG": "${HOME}/.config/aseprite-mcp/config.json"
+        "PIXEL_MCP_CONFIG": "${HOME}/.config/pixel-mcp/config.json"
       },
       "disabled": false,
       "alwaysAllow": [],
-      "description": "Aseprite MCP Server - Provides pixel art creation, animation, and export capabilities"
+      "description": "Pixel MCP Server - Provides pixel art creation, animation, and export capabilities"
     }
   }
 }

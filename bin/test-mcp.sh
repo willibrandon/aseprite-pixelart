@@ -33,18 +33,18 @@ else
     fi
 fi
 
-# Check aseprite-mcp wrapper exists
-if [ ! -f "$BIN_DIR/aseprite-mcp" ]; then
-    echo -e "${RED}✗ aseprite-mcp wrapper not found${NC}"
+# Check pixel-mcp wrapper exists
+if [ ! -f "$BIN_DIR/pixel-mcp" ]; then
+    echo -e "${RED}✗ pixel-mcp wrapper not found${NC}"
     ERRORS=$((ERRORS + 1))
 else
-    echo -e "${GREEN}✓ aseprite-mcp wrapper exists${NC}"
+    echo -e "${GREEN}✓ pixel-mcp wrapper exists${NC}"
 
     # Check if executable
-    if [ -x "$BIN_DIR/aseprite-mcp" ]; then
-        echo -e "${GREEN}✓ aseprite-mcp is executable${NC}"
+    if [ -x "$BIN_DIR/pixel-mcp" ]; then
+        echo -e "${GREEN}✓ pixel-mcp is executable${NC}"
     else
-        echo -e "${RED}✗ aseprite-mcp is not executable${NC}"
+        echo -e "${RED}✗ pixel-mcp is not executable${NC}"
         ERRORS=$((ERRORS + 1))
     fi
 fi
@@ -77,7 +77,7 @@ esac
 echo "  Platform: $OS-$ARCH"
 
 # Check platform-specific binary exists
-BINARY_NAME="aseprite-mcp-${OS}-${ARCH}"
+BINARY_NAME="pixel-mcp-${OS}-${ARCH}"
 if [ "$OS" = "windows" ]; then
     BINARY_NAME="${BINARY_NAME}.exe"
 fi
@@ -108,14 +108,14 @@ else
 fi
 
 # Check config template
-if [ ! -f "$PLUGIN_ROOT/config/aseprite-mcp-config.json" ]; then
-    echo -e "${RED}✗ aseprite-mcp-config.json template not found${NC}"
+if [ ! -f "$PLUGIN_ROOT/config/pixel-mcp-config.json" ]; then
+    echo -e "${RED}✗ pixel-mcp-config.json template not found${NC}"
     ERRORS=$((ERRORS + 1))
 else
-    echo -e "${GREEN}✓ aseprite-mcp-config.json template exists${NC}"
+    echo -e "${GREEN}✓ pixel-mcp-config.json template exists${NC}"
 
     # Validate JSON
-    if python3 -m json.tool "$PLUGIN_ROOT/config/aseprite-mcp-config.json" > /dev/null 2>&1; then
+    if python3 -m json.tool "$PLUGIN_ROOT/config/pixel-mcp-config.json" > /dev/null 2>&1; then
         echo -e "${GREEN}✓ Config template is valid JSON${NC}"
     else
         echo -e "${RED}✗ Config template is invalid JSON${NC}"
