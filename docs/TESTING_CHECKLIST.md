@@ -83,15 +83,17 @@ Comprehensive testing checklist for Aseprite Pixel Art Plugin.
   - Verify: Visual quality maintained
   - Result: PASSED - Floyd-Steinberg error diffusion applied successfully, smooth gradient pattern with organic noise, visual quality excellent
 
-- [ ] **Test 12: Palette optimization**
-  - Request: "Reduce to 16 colors"
-  - Expected: Palette reduced to 16 colors
+- [x] **Test 12: Palette optimization**
+  - Request: "Load the tree sprite from test-outputs/test5-tree.aseprite and reduce its palette to 16 colors while maintaining visual quality"
+  - Expected: Palette reduced to 16 colors (or optimized to fewer if original has less)
   - Verify: Color count correct, quality acceptable
+  - Result: PASSED - test12-tree-16colors.aseprite (optimized to 4 colors from 3+transparency, median_cut algorithm, indexed mode, visual quality fully preserved)
 
-- [ ] **Test 13: Add shading**
-  - Request: "Add shading with light from top-left"
+- [x] **Test 13: Add shading**
+  - Request: "Load the tree sprite from test-outputs/test5-tree.aseprite and add shading with light from top-left"
   - Expected: Shadows on bottom-right, highlights on top-left
   - Verify: Shading direction correct, looks three-dimensional
+  - Result: FAILED - test13-tree-shaded.aseprite. Tool executed and added shading, but colors inverted (brown foliage, green trunk). Bug in pixel-mcp v0.5.0 apply_auto_shading when converting RGB shaded image back to indexed mode. See https://github.com/willibrandon/pixel-mcp/issues/11. Opportunities for future improvements in artistic quality and region detection.
 
 - [ ] **Test 14: Apply retro palette**
   - Request: "Convert to NES palette"

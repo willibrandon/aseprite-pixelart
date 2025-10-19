@@ -192,15 +192,26 @@ User Request: "Reduce this sprite to 16 colors with dithering"
 Approach:
 1. Get current sprite info
 2. Check current palette size
-3. Apply color quantization to 16 colors
-4. Apply Floyd-Steinberg dithering for smooth gradients
-5. Review result and adjust if needed
+3. Use `mcp__aseprite__quantize_palette` with:
+   - target_colors: 16
+   - algorithm: "median_cut" or "kmeans"
+   - dither: true (enables Floyd-Steinberg dithering)
+4. Review result and adjust if needed
 
 **Workflow 2: Adding Shading to Flat Sprite**
 
 User Request: "Add shading to this sprite with light from top-left"
 
-Approach:
+**Option A - Automatic Shading (Quick):**
+1. Use `mcp__aseprite__apply_auto_shading` with:
+   - light_direction: "top_left"
+   - intensity: 0.3-0.7 (adjust to preference)
+   - style: "smooth", "hard", or "pillow"
+   - hue_shift: true (for vibrant results)
+2. Tool automatically detects regions and adds shading
+3. Review and manually refine if needed
+
+**Option B - Manual Shading (Precise):**
 1. Analyze sprite structure
 2. Identify base colors
 3. Create shadow colors (darker, hue-shifted)
@@ -221,16 +232,30 @@ Approach:
 4. Place AA pixels at edge steps
 5. Review and refine (avoid over-smoothing)
 
-**Workflow 4: Converting to Retro Palette**
+**Workflow 4: Converting to Retro Palette (Full Palette Conversion)**
 
 User Request: "Convert this to NES palette"
 
 Approach:
-1. Load NES palette (54 colors total, 4 colors per sprite)
-2. Decide which 4 NES colors to use
-3. Apply quantization to 4 colors
-4. Optionally apply Bayer dithering for retro look
-5. Verify sprite uses only chosen colors
+1. Use `mcp__aseprite__quantize_palette` with retro palette colors
+2. Specify target palette (e.g., 54 NES colors, 4 Game Boy colors, 16 C64 colors)
+3. Algorithm maps each pixel to nearest palette color
+4. Pixels are remapped to new palette indices
+5. Optionally apply dithering for smoother transitions
+6. Verify all colors match target palette
+
+**IMPORTANT**: Use `quantize_palette`, NOT `set_palette`. The `set_palette` tool only replaces the color table without remapping pixel data, which will produce incorrect colors in indexed mode.
+
+Example:
+```
+quantize_palette(
+  sprite_path: "sprite.aseprite",
+  target_colors: 54,  # NES full palette
+  algorithm: "median_cut",
+  convert_to_indexed: true,
+  dither: false  # or true for Bayer dithering
+)
+```
 
 ### 7. Dithering Patterns Reference
 
